@@ -10,14 +10,14 @@ pipeline{
 	    
                steps{
 		 echo 'cloning the repo'
-                 git 'https://github.com/Sonal0409/DevOpsClassCodes.git'
+                 git 'https://github.com/joaosebo99/DevOpsCodeDemo.git'
               }
           }
           stage('Compile'){
              
               steps{
                   echo 'complie the code again..'
-                  sh 'mvn compile'
+                  bat('mvn compile')
 	      }
           }
           stage('CodeReview'){
@@ -25,14 +25,14 @@ pipeline{
               steps{
 		    
 		  echo 'codeReview'
-                  sh 'mvn pmd:pmd'
+                  bat('mvn pmd:pmd')
               }
           }
            stage('UnitTest'){
 		  
               steps{
 	         
-                  sh 'mvn test'
+                  bat('mvn test')
               }
           
           }
@@ -41,7 +41,7 @@ pipeline{
 		  
               steps{
 		  
-                  sh 'mvn package'
+                  bat('mvn package')
               }
           }
 	     
